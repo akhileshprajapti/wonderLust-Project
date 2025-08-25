@@ -122,6 +122,8 @@ app.use((err, req, res, next) =>{
     res.status(statusCode).render("Error.ejs",{message})
 })
 
+let port = process.env.PORT || 8080
+
 app.listen(port, function(){
     console.log(`Server is listing on port ${port}`)
 })

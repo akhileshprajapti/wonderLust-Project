@@ -1,4 +1,4 @@
-const { not } = require("joi")
+// const { not } = require("joi")
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -24,6 +24,7 @@ const { not } = require("joi")
 
 let taxSwitch = document.getElementById('flexSwitchCheckDefault')
     taxSwitch.addEventListener("click",()=>{
+      
        let taxInfo = document.getElementsByClassName('tax-info')
        for(info of taxInfo){
         if(info.style.display != "inline"){
