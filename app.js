@@ -33,9 +33,7 @@ async function main() {
         console.log("✅ MongoDB Connected");
 
         // Start server only after DB connection
-        app.listen(8080, () => {
-            console.log("🚀 Server is listening on port 8080");
-        });
+        
     } catch (err) {
         console.error("❌ MongoDB connection error:", err.message);
     }
@@ -56,6 +54,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,"/public")))
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 const store = MongoStore.create({
     mongoUrl : Db_url,
@@ -115,6 +117,9 @@ app.use("/", userRouter)
 // app.all('*',(req, res, next) =>{
 //     next(new ExpressError(404, "Page not found"))
 // })
+// app.all("*", (req, res) => {
+//     res.status(404).render("error", { message: "Page Not Found" });
+// });
 
 // error handling middle ware
 app.use((err, req, res, next) =>{
