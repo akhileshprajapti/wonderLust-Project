@@ -1,22 +1,57 @@
 /* some css of navbar */
- .btn-search{
-        background-color: #fe424d;
-        color: white;
-        border-radius: 2rem;
-        padding: 0 1rem 0 1rem;
-        display: inline-flex;
-        align-items: center;
-    }
-    .btn-search:hover{
-        background-color: #fe424d;
-        color: white;
-    }
-    .btn-search i{
-        display:inline ;
-        margin-right: 0.5rem;
+.navbar {
+  background-color: white;
+  height: 5rem;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+.btn-search {
+  background-color: #fe424d;
+  color: white;
+  border-radius: 2rem;
+  padding: 0 1rem 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.btn-search:hover {
+  background-color: #fe424d;
+  color: white;
+}
+
+.btn-search i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.input-search {
+  border-radius: 2rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
+.search-form {
+    flex-grow: 1;
+    max-width: 400px;
+    margin-left:23% ;
+}
+
+@media (max-width: 1024px) {
+    .search-form {
+        max-width: 60%;
+        margin-right: auto;
+        margin-left: 1rem;
     }
 
-    .input-search{
-        border-radius: 2rem;
-        padding: 0.5rem 3rem 0.5rem 3rem;
+    .navbar-toggler {
+        margin-left: auto;
     }
+}

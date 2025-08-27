@@ -1,29 +1,65 @@
-
 <nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/listings">Explore</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 input-search" type="search" placeholder="Search Destination"  />
-                    <button class="btn btn-search" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        Search
-                    </button>
-                </form>
-            </div>
+        <!-- Logo -->
+        <a class="navbar-brand" href="/listings">
+            <i class="fa-solid fa-compass"></i>
+        </a>
+
+        <!-- Explore (Original Position) -->
+        <a class="nav-link d-none d-lg-inline ms-3" href="/listings">Explore</a>
+
+        <!-- Search Bar (Always Visible) -->
+        <form class="d-flex search-form" role="search">
+            <input class="form-control input-search" type="search" placeholder="Search Destination" />
+            <button class="btn btn-search" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </form>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Desktop Menu -->
+        <div class="collapse navbar-collapse d-none d-lg-flex">
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/listings/new">Airbnb your home</a>
-                <% if(!currUser) {%>
-                    <a class="nav-link" aria-current="page" href="/signup"><b>Signup</b></a>
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/signup"><b>Signup</b></a>
                     <a class="nav-link" href="/login"><b>Log In</b></a>
+                <% } %>
+                <% if(currUser) { %>
+                    <a class="nav-link" href="/logout"><b>Logout</b></a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Offcanvas (Mobile Menu) -->
+        <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-compass"></i> Menu
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <!-- Explore also available in mobile menu for better UX -->
+                    <li class="nav-item"><a class="nav-link" href="/listings">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/listings/new">Airbnb your home</a></li>
+                    <% if(!currUser) { %>
+                        <li class="nav-item"><a class="nav-link" href="/signup"><b>Signup</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login"><b>Log In</b></a></li>
                     <% } %>
-                        <% if(currUser) {%>
-                            <a class="nav-link" href="/logout"><b>Logout</b></a>
-                            <% } %>
+                    <% if(currUser) { %>
+                        <li class="nav-item"><a class="nav-link" href="/logout"><b>Logout</b></a></li>
+                    <% } %>
+                </ul>
             </div>
         </div>
     </div>
