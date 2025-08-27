@@ -57,6 +57,14 @@ body{
     padding: 0 !important;
 }
 
+@media (max-width: 770px) {
+  .card.col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+  }
+}
+
 .card-text{
     font-weight: 400 !important;
 }
@@ -223,7 +231,7 @@ body{
     }
 
     .tax-toggle {
-        margin-left: 10rem;
+        margin-left: auto;
         margin-top: 1rem;
     }
 }
