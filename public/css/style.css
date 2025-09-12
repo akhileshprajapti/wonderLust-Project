@@ -252,3 +252,53 @@ body{
     display: none;
 }
 
+/* search bar */
+/* Container for search results */
+.search {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 50px; /* space between cards */
+  margin-top: 20px;
+  padding: 10px;
+  
+}
+
+/* Heading takes full width */
+.searchH3 {
+  grid-column: 1 / -1; /* make the heading span all 3 columns */
+  margin-bottom: 10px;
+}
+
+/* Each card item */
+.searchItem {
+  display: contents; /* let grid handle children directly */
+}
+
+.listing-link2 {
+  text-decoration: none;
+  color: inherit;
+}
+
+.listing-card2 {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.listing-card2:hover {
+  transform: translateY(-5px);
+}
+
+
+@media (max-width: 992px) {
+  .search {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .search {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}

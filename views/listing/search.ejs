@@ -1,0 +1,38 @@
+<% layout('/layouts/boilerplate') -%>
+
+
+<div class="searchH3">
+        <h3 >Search Results for <%= query %></h3>
+
+    </div>
+<div class="row row-cols-lg-3 row-cols-md-2 mt-3 row-cols-small-1 search " >
+    
+
+    <div class="searchItem">
+    <% if(results.length === 0) { %>
+        <p>No Listing Founds</p> 
+    <%  } else { %>
+
+   
+        <% for(let listing of results){ %>
+            <a href="/listings/<%= listing._id %>" class="listing-link listing-link2">
+                <div class="card listing-card listing-card2 " style="width: 20rem;">
+                    <img src="<%= listing.image.url %>" class="card-img-top card-over" alt="listing_image"
+                        style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <%= listing.title %> <br />
+                                &#8377; <%= typeof listing.price==="number" ? listing.price.toLocaleString("en-IN")
+                                    : "N/A" %>
+                                    <i class="tax-info">&nbsp;&nbsp;+18 GST</i>
+
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <%} %>
+        <%  }%>
+        </div>
+        </div>

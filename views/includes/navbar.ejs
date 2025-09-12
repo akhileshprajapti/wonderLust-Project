@@ -9,8 +9,13 @@
         <a class="nav-link d-none d-lg-inline ms-3" href="/listings">Explore</a>
 
         <!-- Search Bar (Always Visible) -->
-        <form class="d-flex search-form" role="search">
-            <input class="form-control input-search" type="search" placeholder="Search Destination" />
+        <form class="d-flex search-form" role="search" method="GET" action="/listings/search">
+            <input 
+                class="form-control input-search" 
+                type="search" 
+                placeholder="Search Destination" 
+                name="q"
+            />
             <button class="btn btn-search" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i> Search
             </button>
@@ -64,3 +69,7 @@
         </div>
     </div>
 </nav>
+
+<script>
+    
+</script>

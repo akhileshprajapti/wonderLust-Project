@@ -60,3 +60,14 @@ module.exports.deleteListing = async (req, res)=>{
     req.flash("success", "Listing Deleted!")
     res.redirect("/listings")
 }
+
+
+module.exports.searchListing = async (req,res) =>{
+    const query = req.query.q;
+    if(!query){
+       return res.redirect('/listings')
+    }
+
+    let results = await Listing.find({title: {$regex: query, $options: 'i'}})
+    res.render('listing/search.ejs', {results, query})
+}
